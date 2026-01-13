@@ -1,888 +1,264 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#00E6FF" />
-  <title>fixocho.com — Hire me. Or watch it crash again.</title>
-  
-  <meta name="description" content="Public job application for Nightcap streaming ops. No decks. Just uptime. Infrastructure Engineer / New Orleans." />
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <link rel="canonical" href="https://fixocho.com">
-  <meta name="author" content="Ryan Range">
-  <meta name="generator" content="Hand-coded / No Frameworks / Pure Performance">
-  
-  <meta property="og:title" content="fixocho.com — Hire me. Or watch it crash again." />
-  <meta property="og:description" content="I want the gig. Not the meeting. 10yr Infra Engineer. DM @ryanrange." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://fixocho.com" />
-  <meta property="og:site_name" content="FIXOCHO" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:creator" content="@ryanrange" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIXOCHO.COM - HIRE ME</title>
+    <meta name="description" content="No decks. Just uptime. Application for Nightcap Streaming Ops.">
+    
+    <style>
+        :root {
+            --bg: #000000;
+            --fg: #e0e0e0;
+            --ocho: #ff4800; /* High vis orange */
+            --acid: #ccff00; /* Highlither yellow */
+            --err: #ff0000;
+            --link: #00ffff;
+        }
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https:;">
+        * {
+            box-sizing: border-box;
+        }
 
-  <style>
-    :root{
-      /* Miami / Nightcap: louder, brighter */
-      --aqua:#00E6FF;
-      --teal:#008E97;
-      --orange:#FF4A00;
-      --sun:#FFD000;
-      --pink:#FF2BD6;
-      --lime:#B6FF2E;
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: 'Courier New', Courier, monospace; /* Raw code look */
+            margin: 0;
+            padding: 10px;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
 
-      --bg0:#02040a;
-      --bg1:#030A12;
-      --bg2:#061926;
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            border: 4px solid var(--fg);
+            padding: 20px;
+            background: #111;
+        }
 
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
-      --hair: rgba(255,255,255,.12);
+        /* TYPOGRAPHY IS LOUD */
+        h1, h2, h3 {
+            font-family: Arial, Helvetica, sans-serif; /* Blocky sans for headers */
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
 
-      --radius: 18px;
-      --shadow: 0 26px 90px rgba(0,0,0,.62);
+        .giant-85 {
+            font-size: clamp(120px, 40vw, 250px);
+            line-height: 0.8;
+            color: var(--ocho);
+            margin-left: -10px;
+            margin-bottom: 20px;
+            display: block;
+            text-shadow: 4px 4px 0px #fff; 
+        }
 
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-    }
+        .highlight {
+            background-color: var(--fg);
+            color: var(--bg);
+            padding: 2px 6px;
+            display: inline-block;
+            font-weight: bold;
+        }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: var(--sans);
-      color: var(--text);
-      background:
-        radial-gradient(1200px 700px at 12% 10%, rgba(0,230,255,.26), transparent 60%),
-        radial-gradient(900px 540px at 88% 16%, rgba(255,74,0,.24), transparent 62%),
-        radial-gradient(900px 700px at 50% 92%, rgba(255,43,214,.15), transparent 64%),
-        radial-gradient(800px 520px at 20% 90%, rgba(182,255,46,.10), transparent 62%),
-        linear-gradient(180deg, var(--bg0), var(--bg1) 55%, var(--bg2));
-      overflow-x:hidden;
-    }
+        .highlight-yellow {
+            background-color: var(--acid);
+            color: #000;
+            padding: 2px 6px;
+        }
 
-    /* Scanlines + noise + light bloom */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background:
-        repeating-linear-gradient(
-          to bottom,
-          rgba(255,255,255,.040) 0px,
-          rgba(255,255,255,.040) 1px,
-          rgba(0,0,0,0) 3px,
-          rgba(0,0,0,0) 7px
-        );
-      mix-blend-mode: overlay;
-      opacity:.22;
-      z-index:0;
-    }
-    body::after{
-      content:"";
-      position:fixed;
-      inset:-2px;
-      pointer-events:none;
-      background:
-        radial-gradient(900px 420px at 50% 0%, rgba(0,230,255,.14), transparent 60%),
-        radial-gradient(900px 520px at 10% 40%, rgba(255,74,0,.08), transparent 60%),
-        radial-gradient(900px 520px at 90% 60%, rgba(255,43,214,.08), transparent 60%);
-      filter: blur(8px);
-      opacity:.9;
-      z-index:0;
-    }
+        .highlight-red {
+            background-color: var(--err);
+            color: #fff;
+            padding: 2px 6px;
+        }
 
-    a{ color:inherit; text-decoration:none; }
-    a:focus-visible{
-      outline:3px solid rgba(255,74,0,.7);
-      outline-offset:3px;
-      border-radius:12px;
-    }
+        /* SECTIONS */
+        .section {
+            border-top: 4px solid var(--fg);
+            padding-top: 15px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
 
-    .wrap{
-      min-height:100%;
-      display:flex;
-      flex-direction:column;
-      padding: clamp(16px, 4vw, 36px);
-      gap: 18px;
-      position:relative;
-      z-index:1;
-    }
+        .diagnosis-box {
+            border: 4px solid var(--err);
+            background-color: #1a0000;
+            padding: 15px;
+            margin: 30px 0;
+        }
 
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
+        .diagnosis-title {
+            color: var(--err);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--err);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 900;
+        }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      letter-spacing:.3px;
-    }
-    .spark{
-      width:14px; height:14px; border-radius:50%;
-      background: radial-gradient(circle at 30% 30%, #fff, var(--aqua));
-      box-shadow:
-        0 0 0 7px rgba(0,230,255,.12),
-        0 0 28px rgba(0,230,255,.32);
-      flex:0 0 auto;
-    }
-    .brandTitle{
-      display:flex;
-      flex-direction:column;
-      line-height:1.1;
-    }
-    .brandTitle strong{
-      font-size: .98rem;
-      font-weight: 950;
-      letter-spacing:.5px;
-      text-transform: lowercase;
-    }
-    .brandTitle small{
-      font-family:var(--mono);
-      font-size:.76rem;
-      opacity:.74;
-    }
+        /* LISTS */
+        ul {
+            list-style: square;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
 
-    .pill{
-      font-family: var(--mono);
-      font-size: .78rem;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding: 9px 11px;
-      border-radius:999px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      white-space:nowrap;
-      box-shadow: 0 12px 30px rgba(0,0,0,.20);
-    }
+        /* BUTTONS */
+        .cta-btn {
+            display: block;
+            background-color: var(--ocho);
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            padding: 20px;
+            border: 4px solid #fff;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+        .cta-btn:hover {
+            background-color: #fff;
+            color: #000;
+            border-color: var(--ocho);
+        }
 
-    main{
-      flex:1;
-      display:grid;
-      align-items:center;
-    }
+        /* TERMINAL AREA */
+        .terminal {
+            background: #000;
+            border: 1px solid #333;
+            padding: 10px;
+            font-family: monospace;
+            color: #0f0;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
 
-    .shell{
-      width:100%;
-      max-width: 1120px;
-      margin: 0 auto;
-      border-radius: var(--radius);
-      border:1px solid rgba(255,255,255,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.028));
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
+        /* FOOTER */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        footer a { color: #888; }
 
-    /* Neon rim */
-    .shell::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(700px 320px at 16% 8%, rgba(0,230,255,.38), transparent 62%),
-        radial-gradient(620px 320px at 92% 0%, rgba(255,74,0,.30), transparent 62%),
-        radial-gradient(720px 420px at 70% 110%, rgba(255,43,214,.18), transparent 60%),
-        linear-gradient(90deg, rgba(0,230,255,.07), rgba(255,74,0,.07), rgba(255,43,214,.06));
-      pointer-events:none;
-      opacity:.95;
-    }
+        /* UTILS */
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+        
+        .loud-text {
+            font-size: 1.4rem;
+            line-height: 1.2;
+            font-weight: bold;
+        }
 
-    .topbar{
-      position:relative;
-      padding: 12px 14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.20);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .dots{ display:flex; gap:8px; align-items:center; }
-    .dot{ width:10px; height:10px; border-radius:50%; opacity:.9; }
-    .dot.red{ background: #ff3b3b; box-shadow: 0 0 16px rgba(255,59,59,.25); }
-    .dot.yellow{ background: #ffd000; box-shadow: 0 0 16px rgba(255,208,0,.22); }
-    .dot.green{ background: #2bff7a; box-shadow: 0 0 16px rgba(43,255,122,.22); }
-
-    .topbar .label{
-      font-family: var(--mono);
-      font-size: .78rem;
-      opacity: .82;
-      white-space:nowrap;
-    }
-    .topbar .label b{ opacity:.98; }
-
-    .inner{
-      position:relative;
-      padding: clamp(18px, 4.5vw, 44px);
-      display:grid;
-      gap: 18px;
-    }
-
-    .grid{
-      display:grid;
-      gap: 18px;
-      align-items:start;
-    }
-
-    .hero{
-      display:grid;
-      gap: 14px;
-    }
-
-    .tagline{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-family:var(--mono);
-      font-size:.82rem;
-      letter-spacing:.3px;
-      opacity:.92;
-      flex-wrap:wrap;
-    }
-    .tagline .chip{
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      padding: 8px 10px;
-      border-radius:999px;
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-    }
-    .tagline .bolt{
-      width:10px;height:10px;border-radius:2px;
-      background: linear-gradient(180deg, var(--sun), var(--orange));
-      box-shadow: 0 0 20px rgba(255,208,0,.25);
-      transform: rotate(12deg);
-    }
-    .tagline .line{ opacity:.84; }
-
-    .hero85{
-      display:flex;
-      align-items:flex-end;
-      justify-content:flex-start;
-      gap: 14px;
-      position:relative;
-    }
-
-    /* Extra “big swing”: glitch aura behind 85 */
-    .glitchAura{
-      position:absolute;
-      left:-22px;
-      top: 10px;
-      width: min(520px, 92vw);
-      height: 240px;
-      background:
-        radial-gradient(circle at 20% 35%, rgba(0,230,255,.22), transparent 55%),
-        radial-gradient(circle at 65% 35%, rgba(255,74,0,.18), transparent 58%),
-        radial-gradient(circle at 80% 60%, rgba(255,43,214,.14), transparent 60%);
-      filter: blur(6px);
-      opacity:.9;
-      pointer-events:none;
-      transform: rotate(-4deg);
-      animation: auraWobble 6.2s ease-in-out infinite;
-    }
-    @keyframes auraWobble{
-      0%,100%{ transform: translateY(0) rotate(-4deg); opacity:.85; }
-      50%{ transform: translateY(-10px) rotate(-2deg); opacity:1; }
-    }
-
-    .num85{
-      margin:0;
-      font-weight: 950;
-      letter-spacing: -0.06em;
-      line-height:.84;
-      font-size: clamp(104px, 30vw, 240px);
-      background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,255,255,.45));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      text-shadow: 0 18px 70px rgba(0,0,0,.60);
-      position:relative;
-      transform: translateZ(0);
-      animation: floaty 4.0s ease-in-out infinite;
-    }
-    .num85::after{
-      content:"85";
-      position:absolute;
-      inset:0;
-      color:transparent;
-      -webkit-text-stroke: 2px rgba(255,255,255,.16);
-      filter:
-        drop-shadow(0 0 18px rgba(0,230,255,.52))
-        drop-shadow(0 0 14px rgba(255,74,0,.44))
-        drop-shadow(0 0 18px rgba(255,43,214,.24));
-      pointer-events:none;
-    }
-
-    /* micro-glitch copies */
-    .num85::before{
-      content:"85";
-      position:absolute;
-      inset:0;
-      color:transparent;
-      -webkit-text-stroke: 2px rgba(0,230,255,.22);
-      transform: translate(0,0);
-      opacity:.9;
-      pointer-events:none;
-      animation: glitch 3.2s steps(1,end) infinite;
-      filter: drop-shadow(0 0 10px rgba(0,230,255,.22));
-    }
-    @keyframes glitch{
-      0%, 100% { transform: translate(0,0); opacity:.55; }
-      6% { transform: translate(2px,-1px); opacity:.9; }
-      8% { transform: translate(-3px,1px); opacity:.65; }
-      12% { transform: translate(1px,0px); opacity:.85; }
-      17% { transform: translate(-2px,-1px); opacity:.7; }
-      22% { transform: translate(0px,2px); opacity:.78; }
-      29% { transform: translate(3px,0px); opacity:.6; }
-      35% { transform: translate(-1px,0px); opacity:.85; }
-      44% { transform: translate(0px,-2px); opacity:.7; }
-      57% { transform: translate(2px,1px); opacity:.82; }
-      73% { transform: translate(-3px,0px); opacity:.62; }
-      91% { transform: translate(1px,-1px); opacity:.86; }
-    }
-
-    @keyframes floaty{
-      0%,100%{ transform: translateY(0); }
-      50%{ transform: translateY(-10px); }
-    }
-
-    .signal{
-      width:100%;
-      max-width: 520px;
-      height: 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      overflow:hidden;
-      opacity:.95;
-    }
-    .signal::before{
-      content:"";
-      display:block;
-      height:100%;
-      width:50%;
-      background: linear-gradient(90deg, transparent, rgba(0,230,255,.65), rgba(255,74,0,.55), rgba(255,43,214,.45), transparent);
-      transform: translateX(-60%);
-      animation: sweep 1.8s linear infinite;
-      opacity:.9;
-    }
-    @keyframes sweep{
-      0%{ transform: translateX(-60%); }
-      100%{ transform: translateX(180%); }
-    }
-
-    h1{
-      margin:0;
-      font-size: clamp(30px, 6.7vw, 50px);
-      line-height:1.03;
-      letter-spacing:-0.03em;
-    }
-
-    .sub{
-      margin:0;
-      font-size: clamp(15.5px, 4.0vw, 20.5px);
-      line-height:1.45;
-      color: var(--muted);
-      max-width: 65ch;
-    }
-
-    /* Loud emphasis line */
-    .hardline{
-      display:inline-block;
-      margin-top: 8px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.30), rgba(255,255,255,.03));
-      box-shadow: 0 18px 40px rgba(0,0,0,.28);
-      font-family: var(--mono);
-      font-size: .88rem;
-      line-height:1.3;
-    }
-    .hardline b{ color: rgba(255,255,255,.94); }
-    .hardline .hot{
-      color: rgba(255,208,0,.96);
-      text-shadow: 0 0 18px rgba(255,208,0,.16);
-    }
-
-    .ctaRow{
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding: 15px 16px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,74,0,.98), rgba(255,74,0,.70));
-      color: rgba(0,0,0,.92);
-      font-weight: 950;
-      letter-spacing: .2px;
-      box-shadow:
-        0 20px 60px rgba(255,74,0,.24),
-        0 12px 34px rgba(0,0,0,.42);
-      transform: translateZ(0);
-      transition: transform .15s ease, filter .15s ease;
-      user-select:none;
-      position:relative;
-      overflow:hidden;
-    }
-    .btn::after{
-      content:"";
-      position:absolute;
-      inset:-40%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.26), transparent);
-      transform: translateX(-60%) rotate(12deg);
-      animation: sheen 3.2s ease-in-out infinite;
-      opacity:.55;
-      pointer-events:none;
-    }
-    @keyframes sheen{
-      0%, 65% { transform: translateX(-80%) rotate(12deg); opacity:0; }
-      80% { opacity:.55; }
-      100% { transform: translateX(80%) rotate(12deg); opacity:0; }
-    }
-    .btn:hover{ filter: brightness(1.05) saturate(1.12); }
-    .btn:active{ transform: scale(.985); }
-    .btn .ig{ width:18px;height:18px;flex:0 0 auto; }
-
-    .micro{
-      font-family: var(--mono);
-      font-size: .84rem;
-      opacity: .84;
-      max-width: 400px;
-    }
-
-    .callouts{
-      display:grid;
-      gap: 12px;
-    }
-
-    .panel{
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      border-radius: 16px;
-      padding: 14px 14px;
-      box-shadow: 0 18px 40px rgba(0,0,0,.22);
-    }
-    .panel.dashed{ border-style:dashed; background: rgba(255,255,255,.04); }
-
-    .panel h3{
-      margin:0 0 8px 0;
-      font-size: 1rem;
-      letter-spacing:.1px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .beacon{
-      width:10px;height:10px;border-radius:50%;
-      background: var(--aqua);
-      box-shadow: 0 0 0 7px rgba(0,230,255,.10), 0 0 24px rgba(0,230,255,.22);
-      flex:0 0 auto;
-    }
-    .beacon.orange{
-      background: var(--orange);
-      box-shadow: 0 0 0 7px rgba(255,74,0,.10), 0 0 24px rgba(255,74,0,.20);
-    }
-    .beacon.pink{
-      background: var(--pink);
-      box-shadow: 0 0 0 7px rgba(255,43,214,.10), 0 0 24px rgba(255,43,214,.18);
-    }
-    .panel p{
-      margin:0;
-      color: rgba(255,255,255,.86);
-      line-height:1.45;
-      font-size: .98rem;
-    }
-    .panel p b{ color: rgba(255,255,255,.94); }
-
-    .terminal{
-      border:1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(0,0,0,.30), rgba(0,0,0,.16));
-      border-radius: 16px;
-      overflow:hidden;
-      position:relative;
-    }
-    .terminal::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background: radial-gradient(500px 220px at 20% 10%, rgba(182,255,46,.10), transparent 65%);
-      pointer-events:none;
-      opacity:.9;
-    }
-    .terminal .head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding: 10px 12px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      font-family: var(--mono);
-      font-size:.78rem;
-      opacity:.90;
-      position:relative;
-      z-index:1;
-    }
-    .terminal .body{
-      padding: 14px 14px 16px;
-      font-family: var(--mono);
-      font-size: .86rem;
-      line-height:1.55;
-      color: rgba(255,255,255,.88);
-      position:relative;
-      z-index:1;
-    }
-    .k{ color: rgba(255,255,255,.70); }
-    .ok{
-      color: rgba(182,255,46,.92);
-      text-shadow: 0 0 18px rgba(182,255,46,.18);
-    }
-    .warn{
-      color: rgba(255,208,0,.95);
-      text-shadow: 0 0 18px rgba(255,208,0,.18);
-    }
-    .bad{
-      color: rgba(255,74,0,.95);
-      text-shadow: 0 0 18px rgba(255,74,0,.18);
-    }
-    .cursor{
-      display:inline-block;
-      width:10px;
-      height: 1.05em;
-      transform: translateY(2px);
-      background: rgba(0,230,255,.72);
-      margin-left:2px;
-      animation: blink 1s steps(1,end) infinite;
-      border-radius:2px;
-    }
-    @keyframes blink{ 50%{ opacity:0; } }
-
-    /* Sticky “DM” float button (mobile-first) */
-    .floatCta{
-      position: fixed;
-      right: 14px;
-      bottom: 14px;
-      z-index: 50;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      align-items:flex-end;
-    }
-    .floatBadge{
-      font-family: var(--mono);
-      font-size:.78rem;
-      padding: 9px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.38);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      opacity:.92;
-      box-shadow: 0 18px 40px rgba(0,0,0,.28);
-      max-width: 72vw;
-    }
-    .floatBtn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(0,230,255,.95), rgba(0,230,255,.58));
-      color: rgba(0,0,0,.92);
-      font-weight: 950;
-      box-shadow:
-        0 22px 60px rgba(0,230,255,.22),
-        0 14px 40px rgba(0,0,0,.35);
-      transition: transform .15s ease, filter .15s ease;
-    }
-    .floatBtn:hover{ filter: brightness(1.04) saturate(1.08); transform: translateY(-1px); }
-    .floatBtn:active{ transform: translateY(0) scale(.99); }
-    .floatBtn svg{ width:18px;height:18px; }
-
-    footer{
-      width:100%;
-      max-width: 1120px;
-      margin: 0 auto;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      padding: 0 2px;
-      opacity:.92;
-    }
-    .footTop{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px 14px;
-      align-items:center;
-      justify-content:space-between;
-      border-top: 1px solid rgba(255,255,255,.12);
-      padding-top: 14px;
-    }
-    .cred{
-      font-size: .95rem;
-      opacity:.9;
-    }
-    .links{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-    .chipLink{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 9px 11px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.04);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      font-weight: 850;
-      font-size: .9rem;
-      transition: transform .15s ease, background .15s ease;
-    }
-    .chipLink:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); }
-
-    .tiny{
-      font-size: .78rem;
-      opacity:.70;
-      line-height:1.35;
-      padding-bottom: 8px;
-    }
-
-    /* Desktop layout */
-    @media (min-width: 860px){
-      .grid{
-        grid-template-columns: 1.08fr .92fr;
-        gap: 28px;
-        align-items:start;
-      }
-      .ctaRow{ align-items:flex-start; }
-      .signal{ max-width: 560px; }
-      .floatCta{ right: 18px; bottom: 18px; }
-    }
-
-    /* Reduce motion */
-    @media (prefers-reduced-motion: reduce){
-      .num85, .signal::before, .cursor, .glitchAura, .btn::after{ animation:none !important; }
-      .btn, .chipLink, .floatBtn{ transition:none !important; }
-    }
-  </style>
+    </style>
 </head>
-
 <body>
-  <div class="floatCta" aria-label="Quick DM">
-    <div class="floatBadge">
-      <span class="warn">Hire me</span> or watch it crash again.
+
+<div class="container">
+
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div style="font-weight: bold; color: var(--acid);">FIXOCHO.COM</div>
+        <div style="border: 1px solid var(--fg); padding: 5px; font-size: 0.8rem;">JOB_APP_FINAL_V3.TXT</div>
     </div>
-    <a class="floatBtn" href="https://instagram.com/ryanrange" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm10.75 1.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
-      </svg>
-      DM @ryanrange
-    </a>
-  </div>
 
-  <div class="wrap">
-    <header>
-      <div class="brand" aria-label="fixocho.com">
-        <span class="spark" aria-hidden="true"></span>
-        <div class="brandTitle">
-          <strong>fixocho.com</strong>
-          <small>public job application · nightcap streaming ops</small>
+    <div class="giant-85">85</div>
+
+    <h1 style="font-size: 2.5rem; line-height: 1;">YOUR STREAM CRASHED AGAIN.</h1>
+    
+    <p class="loud-text">
+        Let’s stop pretending this is “part of going live.”<br>
+        <span class="highlight-yellow">IT’S A RELIABILITY JOB.</span>
+    </p>
+
+    <p>
+        I’m applying for it—publicly—because the evidence is already on camera. 
+        I don't have a slide deck. I have a fix.
+    </p>
+
+    <div class="diagnosis-box">
+        <div class="diagnosis-title">THE DIAGNOSIS: WHY IT BREAKS</div>
+        <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; color: #fff;">It's the Elgato Cam Link.</p>
+        <p>Here is the plain English truth:</p>
+        <p>A Cam Link is a consumer toy. It's a USB stick trying to do a broadcast job. When you run it for 90 minutes in 4K, it gets hot. <strong>It overheats.</strong></p>
+        <p>When it overheats, it "throttles"—meaning it chokes. That's why your video stutters while the audio keeps working. It's not the internet. It's not the computer. It's the stick.</p>
+        <p style="border: 1px dashed var(--err); padding: 10px; color: #fff; text-align: center;">
+            THE FIX: Throw it in the trash. Install a Blackmagic DeckLink SDI card. Cooling is built in. Problem solved forever.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>I WANT THE GIG. NOT THE MEETING.</h2>
+        <p>Most people ask for a Zoom call. I built a website at 2 AM.</p>
+        
+        <div style="background: #222; padding: 15px; border-left: 5px solid var(--acid);">
+            <h3>LIBERTY CITY DISCIPLINE</h3>
+            <p style="margin: 0;">I don’t just patch servers, I own the paint. If it breaks on-air, it’s not a “maybe.” It’s a “fixed.”</p>
         </div>
-      </div>
-      <div class="pill"><b>No decks.</b> Just uptime.</div>
-    </header>
-
-    <main>
-      <section class="shell" role="region" aria-label="Public application pitch">
-        <div class="topbar">
-          <div class="dots" aria-hidden="true">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="label"><b>NIGHTCAP</b> · LIVE · we takin’ it to da house</div>
+        <br>
+        <div style="background: #222; padding: 15px; border-left: 5px solid var(--ocho);">
+            <h3>TRICK DADDY CLAUSE</h3>
+            <p style="margin: 0;">“I don’t start no sh*t, but I finish it.” That’s policy. And yes: <strong>we takin’ it to da house</strong> — meaning the stream stays up long enough to get there.</p>
         </div>
+    </div>
 
-        <div class="inner">
-          <div class="grid">
-            <div class="hero">
-              <div class="tagline">
-                <span class="chip"><span class="bolt" aria-hidden="true"></span> No decks. Just uptime.</span>
-                <span class="line">I don’t start no sh*t, but I finish it.</span>
-              </div>
-
-              <div class="hero85" aria-label="Eighty-five hero">
-                <div class="glitchAura" aria-hidden="true"></div>
-                <h2 class="num85">85</h2>
-              </div>
-
-              <div class="signal" aria-hidden="true"></div>
-
-              <h1>Your stream crashed again.</h1>
-              <p class="sub">
-                Let’s stop pretending this is “part of going live.”
-                <b>It’s a reliability job.</b> And I’m applying for it—publicly—because the evidence is already on camera.
-              </p>
-
-              <div class="hardline">
-                <b>I'm not pitching a deck.</b> I’m pitching for the <span class="hot">job</span>.<br/>
-                <b>Not offering advice.</b> Offering to run it.<br/>
-                <b>I want the gig.</b> Not the meeting.
-              </div>
-
-              <div class="ctaRow">
-                <a class="btn" href="https://instagram.com/ryanrange" target="_blank" rel="noopener noreferrer">
-                  <svg class="ig" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm10.75 1.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
-                  </svg>
-                  DM @ryanrange
-                </a>
-
-                <div class="micro">
-                  DM “GIG” and I’ll reply like it’s fourth quarter.
-                  <span class="warn">Hire me</span> or watch it crash again.
-                </div>
-              </div>
-
-              <div class="panel">
-                <h3><span class="beacon pink" aria-hidden="true"></span> Trick Daddy clause</h3>
-                <p>
-                  “I don’t start no sh*t, but I finish it.” That’s policy.
-                  And yes: <b>we takin’ it to da house</b> — meaning the stream stays up long enough to get there.
-                </p>
-              </div>
-
-              <div class="panel">
-                <h3><span class="beacon orange" aria-hidden="true"></span> Liberty City discipline</h3>
-                <p>
-                  Built with that <b>Liberty City</b> discipline — I don’t just patch servers, I own the paint.
-                  If it breaks on-air, it’s not a “maybe.” It’s a “fixed.”
-                </p>
-              </div>
-
-              <div class="panel dashed">
-                <h3><span class="beacon" aria-hidden="true"></span> The role I want</h3>
-                <p>
-                  <b>Streaming Ops.</b> The person who owns ingest, encoder settings, routing, redundancy, monitoring, and the “why is it buffering?” moment.
-                  The person who makes chaos look intentional.
-                </p>
-              </div>
-            </div>
-
-            <div class="callouts" aria-label="Terminal and proof">
-              <div class="terminal" aria-label="Uptime console">
-                <div class="head">
-                  <div>Nightcap Uptime Console</div>
-                  <div style="opacity:.75">root@nightcap:~</div>
-                </div>
-                <div class="body">
-                  <div><span class="k">root@nightcap:~#</span> hire ryan --role="streaming_ops" --start="now"<span class="cursor" aria-hidden="true"></span></div>
-                  <div style="margin-top:10px">
-                    <div>&gt; application: <span class="warn">public</span> · loud · intentional</div>
-                    <div>&gt; reason: the stream keeps getting <span class="bad">embarrassed</span></div>
-                    <div>&gt; physical_specs: <span class="ok">6'4"</span> · reach to fix top-rack cabling</div>
-                    <div style="margin-top:8px">
-                      <div>&gt; current symptoms: <span class="bad">dropped frames</span> · reconnect loops · bitrate swings</div>
-                      <div>&gt; root cause: ingest fragility + encoder drift + no “if it fails, it fails over” plan</div>
-                      <div>&gt; fix pack:</div>
-                      <div>&nbsp;&nbsp;• <span class="ok">lock bitrate ladder</span> (stop the rollercoaster)</div>
-                      <div>&nbsp;&nbsp;• <span class="ok">tune encoder preset / keyframes</span> (stability over vibes)</div>
-                      <div>&nbsp;&nbsp;• <span class="ok">primary + backup ingest</span> (failover, not prayers)</div>
-                      <div>&nbsp;&nbsp;• <span class="ok">monitoring + alerting</span> (snitch before it dies)</div>
-                      <div>&gt; outcome: <span class="ok">steady</span> · producer-proof · camera stays hot</div>
-                      <div>&gt; tagline: <span class="warn">No decks. Just uptime.</span></div>
-                      <div>&gt; bonus: <span class="warn">we takin’ it to da house</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel">
-                <h3><span class="beacon" aria-hidden="true"></span> I’m not applying like everyone else</h3>
-                <p>
-                  Most people ask for a meeting. I built a site.
-                  <b>This is the meeting.</b> If you’re reading this, you already know the problem. I want to own it.
-                </p>
-              </div>
-
-              <div class="panel" style="background: rgba(0,0,0,.14);">
-                <h3><span class="beacon orange" aria-hidden="true"></span> What you get if you hire me</h3>
-                <p>
-                  A stream that doesn’t fold mid-sentence.
-                  A producer checklist that’s idiot-proof.
-                  A dashboard that tells the truth.
-                  And someone who treats uptime like the main character.
-                </p>
-              </div>
-
-              <div class="panel" style="background: rgba(255,255,255,.04);">
-                <h3><span class="beacon pink" aria-hidden="true"></span> The bet</h3>
-                <p>
-                  <b>Hire me.</b> The stream gets boring (in the best way): steady, clean, consistent.
-                  Don’t hire me? Cool — I’ll still be watching it crash again.
-                </p>
-              </div>
-
-              <div class="panel dashed">
-                <h3><span class="beacon" aria-hidden="true"></span> The line in the sand</h3>
-                <p>
-                  <b>I want the gig. Not the meeting.</b>
-                  Not offering advice. Offering to run it.
-                  <b>Hire me or watch it crash again.</b>
-                </p>
-              </div>
-
-              <div style="font-family:var(--mono); font-size:.84rem; opacity:.76; padding-left:2px;">
-                This page is loud on purpose. Uptime is louder.
-              </div>
-            </div>
-          </div>
+    <div class="section">
+        <h2>THE TECHNICALS</h2>
+        <div class="terminal">
+            root@nightcap:~# check_system_status<br>
+            > Physical Specs: 6'4" (reach to fix top-rack cabling)<br>
+            > Experience: 10+ Years IT Infrastructure<br>
+            > Current Status: <span style="color:red">DROPPED FRAMES</span><br>
+            > Solution Packet:<br>
+            &nbsp;&nbsp;[x] Lock Bitrate Ladder<br>
+            &nbsp;&nbsp;[x] Tune Encoder Keyframes<br>
+            &nbsp;&nbsp;[x] Primary + Backup Ingest<br>
+            &nbsp;&nbsp;[x] Monitoring + Alerting<br>
+            <br>
+            <span class="blink">_</span>
         </div>
-      </section>
-    </main>
+    </div>
+
+    <div class="section" style="text-align: center;">
+        <h2 style="font-size: 2rem;">THE BET</h2>
+        <p style="font-size: 1.2rem;">
+            <strong>HIRE ME:</strong> The stream gets boring (steady, clean, consistent).<br>
+            <strong>DON'T HIRE ME:</strong> Cool. I'll still be watching it crash.
+        </p>
+
+        <a href="https://instagram.com/ryanrange" class="cta-btn">DM @RYANRANGE</a>
+        <p style="margin-top: 10px; font-size: 0.9rem;">DM me "GIG" and I'll reply like it's the 4th quarter.</p>
+    </div>
 
     <footer>
-      <div class="footTop">
-        <div class="cred">10+ years IT infrastructure • Streaming • Broadcast systems</div>
-        <div class="links" aria-label="Links">
-          <a class="chipLink" href="https://youtube.com/@ryanrange" target="_blank" rel="noopener noreferrer">YouTube · @ryanrange</a>
-          <a class="chipLink" href="https://instagram.com/ryanrange" target="_blank" rel="noopener noreferrer">IG · @ryanrange</a>
-        </div>
-      </div>
-      <div class="tiny">Built on NYE while watching Nightcap. Happy 2026, Ocho.</div>
+        <p><strong>Ryan Range</strong><br>New Orleans, LA</p>
+        <p style="font-family: monospace; font-size: 1.1rem; color: #fff;">
+            PHONE: 504-345-8049
+        </p>
+        <p>
+            YouTube: <a href="https://youtube.com/@ryanrange2562" target="_blank">@ryanrange2562</a><br>
+            IG: <a href="https://instagram.com/ryanrange" target="_blank">@ryanrange</a>
+        </p>
+        <br>
+        <p style="font-size: 0.8rem;">Built on NYE while watching Nightcap. Happy 2026, Ocho.</p>
     </footer>
-  </div>
-  
-  <script>
-    // Just in case they inspect element. Real Gs move in silence like lasagna.
-    console.log("%c STOP.", "color: red; font-size: 30px; font-weight: bold;");
-    console.log("%c If you're reading this, you're looking for the problem. I'm the fix.", "font-size: 16px;");
-    console.log("Specs: 10yr Infra Eng | 6'4\" (vertical reach: valid) | No frameworks. Pure HTML.");
-    console.log("Contact: https://instagram.com/ryanrange");
-  </script>
+
+</div>
+
 </body>
 </html>
