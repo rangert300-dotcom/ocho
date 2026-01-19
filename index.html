@@ -3,31 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="FIXOCHO.COM - THE STREAM IS DOWN.">
+    <meta property="og:description" content="I know why your 4K stream freezes. I have the fix. No slide decks, just uptime.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fixocho.com">
+    <meta property="og:image" content="https://ryanrange.click/assets/preview-card.jpg"> <meta name="twitter:card" content="summary_large_image">
+
     <title>FIXOCHO.COM - HIRE ME</title>
-    <meta name="description" content="No decks. Just uptime. Application for Nightcap Streaming Ops.">
     
     <style>
         :root {
             --bg: #000000;
             --fg: #e0e0e0;
             --ocho: #ff4800; /* High vis orange */
-            --acid: #ccff00; /* Highlither yellow */
+            --acid: #ccff00; /* Highlighter yellow */
             --err: #ff0000;
             --link: #00ffff;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             background-color: var(--bg);
             color: var(--fg);
-            font-family: 'Courier New', Courier, monospace; /* Raw code look */
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 10px;
             line-height: 1.4;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
@@ -35,12 +40,12 @@
             margin: 0 auto;
             border: 4px solid var(--fg);
             padding: 20px;
-            background: #111;
+            background: #050505;
         }
 
-        /* TYPOGRAPHY IS LOUD */
+        /* TYPOGRAPHY */
         h1, h2, h3 {
-            font-family: Arial, Helvetica, sans-serif; /* Blocky sans for headers */
+            font-family: Arial, Helvetica, sans-serif;
             text-transform: uppercase;
             margin-top: 0;
             margin-bottom: 10px;
@@ -49,43 +54,23 @@
         }
 
         .giant-85 {
-            font-size: clamp(120px, 40vw, 250px);
+            font-size: clamp(100px, 35vw, 250px); /* Tweak for safe mobile fit */
             line-height: 0.8;
             color: var(--ocho);
-            margin-left: -10px;
+            margin-left: -5px;
             margin-bottom: 20px;
             display: block;
             text-shadow: 4px 4px 0px #fff; 
-        }
-
-        .highlight {
-            background-color: var(--fg);
-            color: var(--bg);
-            padding: 2px 6px;
-            display: inline-block;
-            font-weight: bold;
         }
 
         .highlight-yellow {
             background-color: var(--acid);
             color: #000;
             padding: 2px 6px;
+            font-weight: 800;
         }
 
-        .highlight-red {
-            background-color: var(--err);
-            color: #fff;
-            padding: 2px 6px;
-        }
-
-        /* SECTIONS */
-        .section {
-            border-top: 4px solid var(--fg);
-            padding-top: 15px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
+        /* DIAGNOSIS SECTION */
         .diagnosis-box {
             border: 4px solid var(--err);
             background-color: #1a0000;
@@ -103,16 +88,6 @@
             font-weight: 900;
         }
 
-        /* LISTS */
-        ul {
-            list-style: square;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-            font-size: 1.1rem;
-        }
-
         /* BUTTONS */
         .cta-btn {
             display: block;
@@ -127,6 +102,7 @@
             border: 4px solid #fff;
             margin-top: 20px;
             text-transform: uppercase;
+            transition: all 0.2s;
         }
         .cta-btn:hover {
             background-color: #fff;
@@ -138,23 +114,14 @@
         .terminal {
             background: #000;
             border: 1px solid #333;
-            padding: 10px;
+            padding: 15px;
             font-family: monospace;
             color: #0f0;
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* Slight drop for mobile width safety */
             margin-top: 20px;
+            white-space: pre-wrap; /* Ensures code wraps on mobile */
+            word-wrap: break-word;
         }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            border-top: 1px solid #333;
-            padding-top: 20px;
-            color: #666;
-            font-size: 0.9rem;
-        }
-        footer a { color: #888; }
 
         /* UTILS */
         .blink { animation: blinker 1s linear infinite; }
@@ -166,6 +133,15 @@
             font-weight: bold;
         }
 
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        footer a { color: #888; text-decoration: none; border-bottom: 1px dotted #888; }
     </style>
 </head>
 <body>
@@ -173,13 +149,13 @@
 <div class="container">
 
     <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-        <div style="font-weight: bold; color: var(--acid);">FIXOCHO.COM</div>
-        <div style="border: 1px solid var(--fg); padding: 5px; font-size: 0.8rem;">JOB_APP_FINAL_V3.TXT</div>
+        <div style="font-weight: bold; color: var(--acid); letter-spacing: 1px;">FIXOCHO.COM</div>
+        <div style="border: 1px solid var(--fg); padding: 5px; font-size: 0.7rem;">JOB_APP_FINAL_V3.TXT</div>
     </div>
 
     <div class="giant-85">85</div>
 
-    <h1 style="font-size: 2.5rem; line-height: 1;">YOUR STREAM CRASHED AGAIN.</h1>
+    <h1 style="font-size: 2.2rem; line-height: 1;">YOUR STREAM CRASHED AGAIN.</h1>
     
     <p class="loud-text">
         Let’s stop pretending this is “part of going live.”<br>
@@ -187,62 +163,62 @@
     </p>
 
     <p>
-        I’m applying for it—publicly—because the evidence is already on camera. 
-        I don't have a slide deck. I have a fix.
+        I’m applying for it—publicly—because the evidence is on camera. 
+        I don't have a slide deck. I have the fix.
     </p>
 
     <div class="diagnosis-box">
-        <div class="diagnosis-title">THE DIAGNOSIS: WHY IT BREAKS</div>
-        <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 5px; color: #fff;">It's the Elgato Cam Link.</p>
+        <div class="diagnosis-title">THE DIAGNOSIS</div>
+        <p style="font-size: 1.1rem; font-weight: bold; margin-bottom: 5px; color: #fff;">It's the Elgato Cam Link.</p>
         <p>Here is the plain English truth:</p>
-        <p>A Cam Link is a consumer toy. It's a USB stick trying to do a broadcast job. When you run it for 90 minutes in 4K, it gets hot. <strong>It overheats.</strong></p>
-        <p>When it overheats, it "throttles"—meaning it chokes. That's why your video stutters while the audio keeps working. It's not the internet. It's not the computer. It's the stick.</p>
-        <p style="border: 1px dashed var(--err); padding: 10px; color: #fff; text-align: center;">
-            THE FIX: Throw it in the trash. Install a Blackmagic DeckLink SDI card. Cooling is built in. Problem solved forever.
+        <p>A Cam Link is a consumer stick trying to do a broadcast job. When you run it for 90 minutes in 4K, <strong>it overheats and throttles.</strong></p>
+        <p>That's why video stutters while audio keeps working. It's not the internet. It's the stick.</p>
+        <p style="border: 2px dashed var(--err); padding: 10px; color: #fff; text-align: center; font-weight: bold; margin-top: 15px;">
+            THE FIX: Throw it in the trash. Install a Blackmagic DeckLink SDI. Cooling built in. Problem solved.
         </p>
     </div>
 
-    <div class="section">
+    <div class="section" style="border-top: 4px solid var(--fg); padding-top: 15px; margin: 30px 0;">
         <h2>I WANT THE GIG. NOT THE MEETING.</h2>
-        <p>Most people ask for a Zoom call. I built a website at 2 AM.</p>
+        <p>Most people ask for a Zoom call. I built this at 2 AM.</p>
         
-        <div style="background: #222; padding: 15px; border-left: 5px solid var(--acid);">
+        <div style="background: #222; padding: 15px; border-left: 5px solid var(--acid); margin-bottom: 15px;">
             <h3>LIBERTY CITY DISCIPLINE</h3>
             <p style="margin: 0;">I don’t just patch servers, I own the paint. If it breaks on-air, it’s not a “maybe.” It’s a “fixed.”</p>
         </div>
-        <br>
+        
         <div style="background: #222; padding: 15px; border-left: 5px solid var(--ocho);">
             <h3>TRICK DADDY CLAUSE</h3>
-            <p style="margin: 0;">“I don’t start no sh*t, but I finish it.” That’s policy. And yes: <strong>we takin’ it to da house</strong> — meaning the stream stays up long enough to get there.</p>
+            <p style="margin: 0;">“I don’t start no sh*t, but I finish it.” That’s policy. And yes: <strong>we takin’ it to da house</strong>—the stream stays up.</p>
         </div>
     </div>
 
     <div class="section">
         <h2>THE TECHNICALS</h2>
         <div class="terminal">
-            root@nightcap:~# check_system_status<br>
-            > Physical Specs: 6'4" (reach to fix top-rack cabling)<br>
-            > Experience: 10+ Years IT Infrastructure<br>
-            > Current Status: <span style="color:red">DROPPED FRAMES</span><br>
-            > Solution Packet:<br>
-            &nbsp;&nbsp;[x] Lock Bitrate Ladder<br>
-            &nbsp;&nbsp;[x] Tune Encoder Keyframes<br>
-            &nbsp;&nbsp;[x] Primary + Backup Ingest<br>
-            &nbsp;&nbsp;[x] Monitoring + Alerting<br>
-            <br>
-            <span class="blink">_</span>
+root@nightcap:~# check_system_status
+> Physical Specs: 6'4" (reach to fix top-rack cabling)
+> Experience: 10+ Years IT Infrastructure
+> Current Status: <span style="color:red">DROPPED FRAMES</span>
+> Solution Packet:
+  [x] Lock Bitrate Ladder
+  [x] Tune Encoder Keyframes
+  [x] Primary + Backup Ingest
+  [x] Monitoring + Alerting
+
+<span class="blink">_</span>
         </div>
     </div>
 
-    <div class="section" style="text-align: center;">
+    <div class="section" style="text-align: center; margin-top: 40px;">
         <h2 style="font-size: 2rem;">THE BET</h2>
         <p style="font-size: 1.2rem;">
-            <strong>HIRE ME:</strong> The stream gets boring (steady, clean, consistent).<br>
+            <strong>HIRE ME:</strong> The stream gets boring (steady, clean, consistent).<br><br>
             <strong>DON'T HIRE ME:</strong> Cool. I'll still be watching it crash.
         </p>
 
         <a href="https://instagram.com/ryanrange" class="cta-btn">DM @RYANRANGE</a>
-        <p style="margin-top: 10px; font-size: 0.9rem;">DM me "GIG" and I'll reply like it's the 4th quarter.</p>
+        <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">DM me "GIG" and I'll reply like it's the 4th quarter.</p>
     </div>
 
     <footer>
@@ -255,7 +231,7 @@
             IG: <a href="https://instagram.com/ryanrange" target="_blank">@ryanrange</a>
         </p>
         <br>
-        <p style="font-size: 0.8rem;">Built on NYE while watching Nightcap. Happy 2026, Ocho.</p>
+        <p style="font-size: 0.8rem; color: #444;">Built on NYE while watching Nightcap. Happy 2026, Ocho.</p>
     </footer>
 
 </div>
