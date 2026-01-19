@@ -8,39 +8,60 @@
     <meta property="og:description" content="I know why your 4K stream freezes. I have the fix. No slide decks, just uptime.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fixocho.com">
-    <meta property="og:image" content="https://ryanrange.click/assets/preview-card.jpg"> <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary_large_image">
 
     <title>FIXOCHO.COM - HIRE ME</title>
     
     <style>
         :root {
-            --bg: #000000;
-            --fg: #e0e0e0;
-            --ocho: #ff4800; /* High vis orange */
-            --acid: #ccff00; /* Highlighter yellow */
+            /* BRAND PALETTE */
+            --bengals-orange: #FB4F14; 
+            --bengals-black: #050505;
+            --dolphins-teal: #008E97;
+            --dolphins-orange: #FC4C02;
+            --concrete: #333333;
+            --white: #e0e0e0;
             --err: #ff0000;
-            --link: #00ffff;
         }
 
         * { box-sizing: border-box; }
 
         body {
-            background-color: var(--bg);
-            color: var(--fg);
+            background-color: #000;
+            color: var(--white);
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 10px;
+            padding: 15px;
             line-height: 1.4;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            background-image: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
         }
 
+        /* MAIN CONTAINER - INDUSTRIAL CARD STYLE */
         .container {
             max-width: 650px;
             margin: 0 auto;
-            border: 4px solid var(--fg);
+            border: 4px solid var(--bengals-orange);
             padding: 20px;
-            background: #050505;
+            background: #0a0a0a;
+            box-shadow: 0 0 50px rgba(251, 79, 20, 0.2);
+            position: relative;
+        }
+
+        /* BENGALS STRIPES DIVIDER */
+        .stripe-divider {
+            height: 12px;
+            background: repeating-linear-gradient(
+                -45deg,
+                var(--bengals-orange),
+                var(--bengals-orange) 10px,
+                var(--bengals-black) 10px,
+                var(--bengals-black) 20px
+            );
+            margin: 30px 0;
+            border-top: 2px solid #fff;
+            border-bottom: 2px solid #fff;
         }
 
         /* TYPOGRAPHY */
@@ -53,45 +74,85 @@
             letter-spacing: -1px;
         }
 
+        /* THE GIANT 85 */
         .giant-85 {
-            font-size: clamp(100px, 35vw, 250px); /* Tweak for safe mobile fit */
+            font-size: clamp(100px, 30vw, 220px);
             line-height: 0.8;
-            color: var(--ocho);
+            color: var(--bengals-orange);
             margin-left: -5px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             display: block;
-            text-shadow: 4px 4px 0px #fff; 
+            /* Teal Gloss Effect */
+            text-shadow: 
+                4px 4px 0px var(--dolphins-teal),
+                8px 8px 0px #000;
         }
 
-        .highlight-yellow {
-            background-color: var(--acid);
+        .highlight-teal {
+            background-color: var(--dolphins-teal);
             color: #000;
             padding: 2px 6px;
             font-weight: 800;
         }
 
+        /* OCHO DAD JOKE SECTION */
+        .joke-box {
+            background: #111;
+            border: 3px solid var(--dolphins-teal);
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .joke-header {
+            color: var(--dolphins-teal);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .joke-btn {
+            background: var(--dolphins-teal);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.1s;
+            font-family: Arial, sans-serif;
+            box-shadow: 4px 4px 0px var(--bengals-orange);
+        }
+        .joke-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--bengals-orange);
+        }
+
+        .joke-text {
+            margin-top: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
+            min-height: 60px;
+            font-family: Arial, sans-serif;
+            line-height: 1.3;
+        }
+
         /* DIAGNOSIS SECTION */
         .diagnosis-box {
-            border: 4px solid var(--err);
-            background-color: #1a0000;
+            border: 2px solid var(--err);
+            background-color: rgba(255, 0, 0, 0.05);
             padding: 15px;
             margin: 30px 0;
         }
 
-        .diagnosis-title {
-            color: var(--err);
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--err);
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: 900;
-        }
-
-        /* BUTTONS */
+        /* CALL TO ACTION */
         .cta-btn {
             display: block;
-            background-color: var(--ocho);
+            background-color: var(--bengals-orange);
             color: #fff;
             text-decoration: none;
             text-align: center;
@@ -106,135 +167,136 @@
         }
         .cta-btn:hover {
             background-color: #fff;
-            color: #000;
-            border-color: var(--ocho);
+            color: var(--bengals-orange);
+            border-color: var(--bengals-orange);
         }
 
-        /* TERMINAL AREA */
-        .terminal {
-            background: #000;
-            border: 1px solid #333;
-            padding: 15px;
-            font-family: monospace;
-            color: #0f0;
-            font-size: 0.85rem; /* Slight drop for mobile width safety */
-            margin-top: 20px;
-            white-space: pre-wrap; /* Ensures code wraps on mobile */
-            word-wrap: break-word;
-        }
-
-        /* UTILS */
-        .blink { animation: blinker 1s linear infinite; }
-        @keyframes blinker { 50% { opacity: 0; } }
-        
-        .loud-text {
-            font-size: 1.4rem;
-            line-height: 1.2;
-            font-weight: bold;
-        }
-
+        /* FOOTER */
         footer {
             text-align: center;
             margin-top: 50px;
-            border-top: 1px solid #333;
+            border-top: 1px solid var(--concrete);
             padding-top: 20px;
             color: #666;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
-        footer a { color: #888; text-decoration: none; border-bottom: 1px dotted #888; }
+        footer a { color: var(--dolphins-teal); text-decoration: none; }
+        
+        .loud-text { font-size: 1.3rem; font-weight: bold; margin-bottom: 20px; }
+        
+        /* TERMINAL STYLE */
+        .terminal {
+            font-family: monospace;
+            color: var(--dolphins-teal);
+            background: #000;
+            padding: 15px;
+            border: 1px solid #333;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
 
-    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-        <div style="font-weight: bold; color: var(--acid); letter-spacing: 1px;">FIXOCHO.COM</div>
-        <div style="border: 1px solid var(--fg); padding: 5px; font-size: 0.7rem;">JOB_APP_FINAL_V3.TXT</div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom:10px;">
+        <div style="font-weight: bold; color: var(--bengals-orange); letter-spacing: 1px;">FIXOCHO.COM</div>
+        <div style="border: 1px solid var(--concrete); padding: 5px; font-size: 0.7rem; color: #666;">STATUS: LIVE</div>
     </div>
 
     <div class="giant-85">85</div>
 
-    <h1 style="font-size: 2.2rem; line-height: 1;">YOUR STREAM CRASHED AGAIN.</h1>
+    <h1 style="font-size: 2.2rem; line-height: 1; color: #fff;">THE STREAM IS DOWN.</h1>
     
     <p class="loud-text">
-        Let’s stop pretending this is “part of going live.”<br>
-        <span class="highlight-yellow">IT’S A RELIABILITY JOB.</span>
+        Let's stop pretending this is "part of going live."<br>
+        <span class="highlight-teal">IT'S A RELIABILITY JOB.</span>
     </p>
 
-    <p>
-        I’m applying for it—publicly—because the evidence is on camera. 
-        I don't have a slide deck. I have the fix.
-    </p>
-
-    <div class="diagnosis-box">
-        <div class="diagnosis-title">THE DIAGNOSIS</div>
-        <p style="font-size: 1.1rem; font-weight: bold; margin-bottom: 5px; color: #fff;">It's the Elgato Cam Link.</p>
-        <p>Here is the plain English truth:</p>
-        <p>A Cam Link is a consumer stick trying to do a broadcast job. When you run it for 90 minutes in 4K, <strong>it overheats and throttles.</strong></p>
-        <p>That's why video stutters while audio keeps working. It's not the internet. It's the stick.</p>
-        <p style="border: 2px dashed var(--err); padding: 10px; color: #fff; text-align: center; font-weight: bold; margin-top: 15px;">
-            THE FIX: Throw it in the trash. Install a Blackmagic DeckLink SDI. Cooling built in. Problem solved.
-        </p>
+    <div class="stripe-divider"></div>
+    
+    <div class="joke-box">
+        <div class="joke-header">/// OCHO'S NIGHTCAP JOKE GENERATOR ///</div>
+        <button onclick="fetchJoke()" class="joke-btn">GET OCHO'D</button>
+        <p id="joke-output" class="joke-text">Click the button. I know you love these.</p>
     </div>
 
-    <div class="section" style="border-top: 4px solid var(--fg); padding-top: 15px; margin: 30px 0;">
-        <h2>I WANT THE GIG. NOT THE MEETING.</h2>
-        <p>Most people ask for a Zoom call. I built this at 2 AM.</p>
-        
-        <div style="background: #222; padding: 15px; border-left: 5px solid var(--acid); margin-bottom: 15px;">
-            <h3>LIBERTY CITY DISCIPLINE</h3>
-            <p style="margin: 0;">I don’t just patch servers, I own the paint. If it breaks on-air, it’s not a “maybe.” It’s a “fixed.”</p>
-        </div>
-        
-        <div style="background: #222; padding: 15px; border-left: 5px solid var(--ocho);">
-            <h3>TRICK DADDY CLAUSE</h3>
-            <p style="margin: 0;">“I don’t start no sh*t, but I finish it.” That’s policy. And yes: <strong>we takin’ it to da house</strong>—the stream stays up.</p>
+    <div class="stripe-divider"></div>
+
+    <div class="diagnosis-box">
+        <h3 style="color: var(--err);">THE DIAGNOSIS</h3>
+        <p><strong>It's the Elgato Cam Link.</strong></p>
+        <p>A Cam Link is a consumer stick. When you run it for 90 minutes in 4K, <strong>it overheats and throttles.</strong></p>
+        <p>That's why the video stutters but the audio works. It's not the internet.</p>
+        <div style="margin-top:15px; border-top: 1px dashed var(--err); padding-top:10px; font-weight:bold; color: #fff;">
+            THE FIX: Throw it in the trash. Install a Blackmagic DeckLink SDI. Cooling built in. Problem solved.
         </div>
     </div>
 
     <div class="section">
-        <h2>THE TECHNICALS</h2>
+        <h2 style="color: var(--bengals-orange);">THE RESUME</h2>
         <div class="terminal">
-root@nightcap:~# check_system_status
-> Physical Specs: 6'4" (reach to fix top-rack cabling)
-> Experience: 10+ Years IT Infrastructure
-> Current Status: <span style="color:red">DROPPED FRAMES</span>
-> Solution Packet:
-  [x] Lock Bitrate Ladder
-  [x] Tune Encoder Keyframes
-  [x] Primary + Backup Ingest
-  [x] Monitoring + Alerting
+root@fixocho:~# whoami
+> NAME: Ryan Range
+> LOCATION: New Orleans, LA
+> ROLE: Infrastructure Engineer
+> SPECIALTY: High-Stakes Uptime (Maritime/Legal)
 
-<span class="blink">_</span>
+root@fixocho:~# why_hire_me
+> I don't need a slide deck.
+> I watched the stream crash.
+> I diagnosed the hardware failure remotely.
+> I built this page to tell you how to fix it.
         </div>
     </div>
 
     <div class="section" style="text-align: center; margin-top: 40px;">
-        <h2 style="font-size: 2rem;">THE BET</h2>
-        <p style="font-size: 1.2rem;">
-            <strong>HIRE ME:</strong> The stream gets boring (steady, clean, consistent).<br><br>
-            <strong>DON'T HIRE ME:</strong> Cool. I'll still be watching it crash.
+        <h2 style="font-size: 2rem; color: #fff;">THE BET</h2>
+        <p style="font-size: 1.1rem; color:#ccc;">
+            Hire me, and the stream gets boring (steady, clean, consistent).<br>
+            Don't hire me, and I'll keep watching it crash from my couch.
         </p>
 
-        <a href="https://instagram.com/ryanrange" class="cta-btn">DM @RYANRANGE</a>
-        <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">DM me "GIG" and I'll reply like it's the 4th quarter.</p>
+        <a href="https://instagram.com/ryanrange" target="_blank" class="cta-btn">DM @RYANRANGE</a>
+        <p style="margin-top: 15px; font-size: 0.9rem; color: var(--dolphins-teal);">
+            Email: ryan@range.it.com
+        </p>
     </div>
 
     <footer>
-        <p><strong>Ryan Range</strong><br>New Orleans, LA</p>
-        <p style="font-family: monospace; font-size: 1.1rem; color: #fff;">
-            PHONE: 504-345-8049
-        </p>
-        <p>
-            YouTube: <a href="https://youtube.com/@ryanrange2562" target="_blank">@ryanrange2562</a><br>
-            IG: <a href="https://instagram.com/ryanrange" target="_blank">@ryanrange</a>
-        </p>
-        <br>
-        <p style="font-size: 0.8rem; color: #444;">Built on NYE while watching Nightcap. Happy 2026, Ocho.</p>
+        <p><strong>RYAN RANGE</strong> // SYSTEMS & INFRASTRUCTURE</p>
+        <p>Built in New Orleans. Go Bengals. Fins Up.</p>
     </footer>
 
 </div>
+
+<script>
+async function fetchJoke() {
+    const output = document.getElementById('joke-output');
+    const btn = document.querySelector('.joke-btn');
+    
+    // UI Feedback
+    output.style.opacity = '0.5';
+    btn.innerText = "LOADING...";
+    
+    try {
+        const res = await fetch('https://icanhazdadjoke.com/', {
+            headers: { 'Accept': 'application/json' }
+        });
+        const data = await res.json();
+        
+        output.textContent = data.joke;
+        output.style.opacity = '1';
+        btn.innerText = "ANOTHER ONE";
+        
+    } catch (err) {
+        // Fallback if API fails
+        output.textContent = "Why don't football players get hot? Too many fans. (API Error - check connection)";
+        output.style.opacity = '1';
+        btn.innerText = "RETRY";
+    }
+}
+</script>
 
 </body>
 </html>
